@@ -4,12 +4,20 @@ const KEY = "sb_publishable_ty4jnDSxGc6WaqxgsFUQuQ_-Vk-SV5d";
 
 
 // SALVAR PRODUTO
+
 async function salvar() {
 
     const nome = document.getElementById("nome").value;
+    const preco = document.getElementById("preco").value;
+    const descricao = document.getElementById("descricao").value;
 
     if (nome === "") {
         alert("Digite o nome do produto!");
+        return;
+    }
+
+    if (preco === "") {
+        alert("Digite o preço do produto!");
         return;
     }
 
@@ -25,7 +33,9 @@ async function salvar() {
             },
 
             body: JSON.stringify({
-                nome: nome
+                nome: nome,
+                preco: Number(preco),
+                descricao: descricao
             })
         }
     );
@@ -36,6 +46,8 @@ async function salvar() {
             "Produto salvo!";
 
         document.getElementById("nome").value = "";
+        document.getElementById("preco").value = "";
+        document.getElementById("descricao").value = "";
 
         listarProdutos();
 
