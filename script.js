@@ -74,7 +74,7 @@ async function listarProdutos() {
         const item = document.createElement("li");
 
         item.innerText =
-            produto.id + " - " + produto.nome;
+            produto.id + " - " + produto.nome + " " + produto.preco + " " + produto.descricao;
 
         lista.appendChild(item);
 
